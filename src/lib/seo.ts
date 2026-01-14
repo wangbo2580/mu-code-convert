@@ -1,0 +1,152 @@
+// SEO Configuration
+
+import { SITE_CONFIG } from './constants';
+
+interface PageSEO {
+  title: string;
+  description: string;
+  keywords: string[];
+  canonical: string;
+}
+
+export const SEO_CONFIG: Record<string, PageSEO> = {
+  home: {
+    title: `${SITE_CONFIG.name} - Free Online Encoder Decoder Tools`,
+    description: 'Free online tools to convert text between Morse code, Base64, Binary, Hexadecimal, URL encoding, and more. Instant conversion, no download, no registration required.',
+    keywords: [
+      'encoder',
+      'decoder',
+      'converter',
+      'morse code',
+      'base64',
+      'binary',
+      'hex',
+      'online encoder decoder',
+      'free text converter',
+      'online tools',
+      'code translator',
+    ],
+    canonical: SITE_CONFIG.url,
+  },
+  morse: {
+    title: 'Morse Code Translator - Convert Text to Morse Code Online Free',
+    description: 'Free online Morse code translator. Convert text to Morse code and decode Morse code to text instantly. Play Morse code audio with sound. No download, no registration needed.',
+    keywords: [
+      'morse code translator',
+      'morse code translator online',
+      'morse code converter',
+      'text to morse',
+      'morse to text',
+      'morse code audio',
+      'morse code decoder',
+      'morse code encoder',
+      'morse code sound',
+      'sos morse code',
+      'morse code alphabet',
+    ],
+    canonical: `${SITE_CONFIG.url}/morse-code-translator`,
+  },
+  base64: {
+    title: 'Base64 Encoder/Decoder - Encode & Decode Base64 Online Free',
+    description: 'Free online Base64 encoder and decoder. Encode text to Base64, decode Base64 strings instantly. Supports Unicode characters. No download required.',
+    keywords: [
+      'base64 encoder',
+      'base64 decoder',
+      'base64 converter',
+      'encode base64',
+      'decode base64',
+      'base64 encoder decoder',
+      'base64 encode online',
+      'base64 decode online',
+      'base64 string encoder',
+      'base64 to text',
+      'text to base64',
+    ],
+    canonical: `${SITE_CONFIG.url}/base64-encoder`,
+  },
+  binary: {
+    title: 'Binary Converter - Text to Binary & Binary to Text Online Free',
+    description: 'Free online binary converter. Convert text to binary code and binary to text instantly. Supports ASCII to binary conversion. Simple, fast, and accurate.',
+    keywords: [
+      'binary converter',
+      'binary converter online',
+      'text to binary',
+      'binary to text',
+      'binary translator',
+      'binary code',
+      'ascii to binary',
+      'binary to ascii',
+      'binary code converter',
+      '8-bit binary converter',
+    ],
+    canonical: `${SITE_CONFIG.url}/binary-converter`,
+  },
+  hex: {
+    title: 'Hex Converter - Text to Hex & Hex to Text Online Free',
+    description: 'Free online hexadecimal converter. Convert text to hex and hex to text instantly. Supports ASCII to hex conversion. Multiple format options available.',
+    keywords: [
+      'hex converter',
+      'hex converter online',
+      'text to hex',
+      'hex to text',
+      'hexadecimal converter',
+      'hex to ascii',
+      'ascii to hex',
+      'hex string converter',
+      'hexadecimal encoder',
+      'hex decoder online',
+    ],
+    canonical: `${SITE_CONFIG.url}/hex-converter`,
+  },
+  url: {
+    title: 'URL Encoder/Decoder - Encode & Decode URLs Online Free',
+    description: 'Free online URL encoder and decoder. Encode special characters for URLs or decode URL-encoded strings instantly. Supports percent encoding.',
+    keywords: [
+      'url encoder',
+      'url decoder',
+      'encode url',
+      'decode url',
+      'urlencode',
+      'url encoder online',
+      'url encoder decoder',
+      'percent encoding',
+      'url escape',
+      'url encode special characters',
+    ],
+    canonical: `${SITE_CONFIG.url}/url-encoder`,
+  },
+  caesar: {
+    title: 'Caesar Cipher Decoder - ROT13 & Caesar Cipher Tool Online',
+    description: 'Free online Caesar cipher encoder/decoder and ROT13 tool. Encrypt or decrypt text with any shift value. Instant results, no download needed.',
+    keywords: [
+      'caesar cipher',
+      'caesar cipher online',
+      'rot13',
+      'caesar cipher decoder',
+      'caesar cipher encoder',
+      'caesar cipher solver',
+      'rot13 decoder',
+      'rot13 translator',
+      'caesar shift cipher',
+      'caesar cipher decryptor',
+    ],
+    canonical: `${SITE_CONFIG.url}/caesar-cipher`,
+  },
+  html: {
+    title: 'HTML Entities Encoder/Decoder - Encode HTML Characters Online',
+    description: 'Free online HTML entities encoder and decoder. Convert special characters to HTML entities and vice versa. Escape HTML characters instantly.',
+    keywords: [
+      'html entities',
+      'html encoder',
+      'html decoder',
+      'html escape',
+      'html entities encoder',
+      'html entity converter',
+      'html special characters encoder',
+      'escape html online',
+      'html encode online',
+      'unescape html',
+    ],
+    canonical: `${SITE_CONFIG.url}/html-entities`,
+  },
+};

@@ -1,0 +1,5 @@
+# robots.txt for CodeConvert
+User-agent: *
+Allow: /
+
+Sitemap: https://codeconvert.com/sitemap.xml
