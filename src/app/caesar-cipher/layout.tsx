@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import { SEO_CONFIG } from '@/lib/seo';
+import { generateToolSchema, generateBreadcrumbSchema, generateFAQSchema, TOOL_FAQS } from '@/lib/structuredData';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: SEO_CONFIG.caesar.title,
@@ -21,5 +23,40 @@ export default function CaesarLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  const toolSchema = generateToolSchema({
+    name: 'Caesar Cipher',
+    description: SEO_CONFIG.caesar.description,
+    url: SEO_CONFIG.caesar.canonical,
+  });
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: SITE_CONFIG.url },
+    { name: 'Caesar Cipher', url: SEO_CONFIG.caesar.canonical },
+  ]);
+
+  const faqSchema = generateFAQSchema(TOOL_FAQS.caesar);
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(toolSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema),
+        }}
+      />
+      {children}
+    </>
+  );
 }

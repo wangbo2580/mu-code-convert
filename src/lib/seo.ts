@@ -133,8 +133,8 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     canonical: `${SITE_CONFIG.url}/caesar-cipher`,
   },
   html: {
-    title: 'HTML Entities Encoder/Decoder - Encode HTML Characters Online',
-    description: 'Free online HTML entities encoder and decoder. Convert special characters to HTML entities and vice versa. Escape HTML characters instantly.',
+    title: 'HTML Entities Encoder/Decoder - Encode HTML Characters Online Free',
+    description: 'Free online HTML entities encoder and decoder. Convert special characters to HTML entities and vice versa. Escape HTML characters instantly. No download required.',
     keywords: [
       'html entities',
       'html encoder',

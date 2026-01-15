@@ -75,57 +75,72 @@ export function ConverterLayout({
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl">
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-2xl">{title}</CardTitle>
-          <CardDescription>{description}</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          {/* Tabs */}
-          <Tabs value={activeTab} onValueChange={handleTabChange}>
-            <TabsList className="grid w-full" style={{ gridTemplateColumns: `repeat(${tabs.length}, 1fr)` }}>
-              {tabs.map((tab) => (
-                <TabsTrigger key={tab.id} value={tab.id}>
-                  {tab.label}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </Tabs>
+    <div className="relative min-h-[calc(100vh-8rem)]">
+      {/* Background decorations */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="gradient-blob gradient-blob-1 w-[400px] h-[400px] -top-32 -right-32 opacity-20" />
+        <div className="gradient-blob gradient-blob-2 w-[300px] h-[300px] bottom-0 -left-24 opacity-15" />
+      </div>
 
-          {/* Input */}
-          <div className="space-y-2">
-            <Label htmlFor="input">{inputLabel}</Label>
-            <Textarea
-              id="input"
-              placeholder={inputPlaceholder}
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              className="min-h-[120px] font-mono"
-            />
-          </div>
+      {/* Subtle pattern */}
+      <div className="absolute inset-0 bg-dot-pattern opacity-30 pointer-events-none" />
 
-          {/* Output */}
-          <div className="space-y-2">
-            <Label htmlFor="output">{outputLabel}</Label>
-            <Textarea
-              id="output"
-              value={error || output}
-              readOnly
-              className={`min-h-[120px] font-mono ${error ? 'text-destructive' : ''}`}
-            />
-          </div>
+      <div className="relative container mx-auto px-4 py-8 max-w-4xl">
+        <Card className="border-border/50 shadow-lg shadow-primary/5 backdrop-blur-sm bg-card/95">
+          <CardHeader className="pb-4">
+            <CardTitle className="text-2xl gradient-text">{title}</CardTitle>
+            <CardDescription>{description}</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            {/* Tabs */}
+            <Tabs value={activeTab} onValueChange={handleTabChange}>
+              <TabsList className="grid w-full bg-muted/50" style={{ gridTemplateColumns: `repeat(${tabs.length}, 1fr)` }}>
+                {tabs.map((tab) => (
+                  <TabsTrigger
+                    key={tab.id}
+                    value={tab.id}
+                    className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                  >
+                    {tab.label}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </Tabs>
 
-          {/* Actions */}
-          <div className="flex items-center gap-2 flex-wrap">
-            {extraActions}
-            <CopyButton text={output} disabled={!output || !!error} />
-          </div>
-        </CardContent>
-      </Card>
+            {/* Input */}
+            <div className="space-y-2">
+              <Label htmlFor="input" className="text-sm font-medium">{inputLabel}</Label>
+              <Textarea
+                id="input"
+                placeholder={inputPlaceholder}
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                className="min-h-[120px] font-mono bg-muted/30 border-border/50 focus:border-primary/50 focus:ring-primary/20 transition-colors"
+              />
+            </div>
 
-      {/* Extra content (like code charts) */}
-      {children}
+            {/* Output */}
+            <div className="space-y-2">
+              <Label htmlFor="output" className="text-sm font-medium">{outputLabel}</Label>
+              <Textarea
+                id="output"
+                value={error || output}
+                readOnly
+                className={`min-h-[120px] font-mono bg-muted/30 border-border/50 ${error ? 'text-destructive border-destructive/50' : ''}`}
+              />
+            </div>
+
+            {/* Actions */}
+            <div className="flex items-center gap-2 flex-wrap">
+              {extraActions}
+              <CopyButton text={output} disabled={!output || !!error} />
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Extra content (like code charts) */}
+        {children}
+      </div>
     </div>
   );
 }

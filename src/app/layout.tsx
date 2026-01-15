@@ -4,7 +4,9 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { SITE_CONFIG } from "@/lib/constants";
+import { generateWebsiteSchema } from "@/lib/structuredData";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +24,21 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_CONFIG.name}`,
   },
   description: SITE_CONFIG.description,
-  keywords: ['encoder', 'decoder', 'converter', 'morse code', 'base64', 'binary', 'hex', 'url encoder'],
+  keywords: [
+    'encoder',
+    'decoder',
+    'converter',
+    'morse code translator',
+    'base64 encoder',
+    'binary converter',
+    'hex converter',
+    'url encoder',
+    'online encoder decoder',
+    'free text converter',
+    'code translator',
+    'encoding tools',
+    'decoding tools',
+  ],
   authors: [{ name: SITE_CONFIG.name }],
   creator: SITE_CONFIG.name,
   metadataBase: new URL(SITE_CONFIG.url),
@@ -42,6 +58,17 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    // Replace with your actual Google Search Console verification code after setup
+    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || '',
   },
 };
 
@@ -50,11 +77,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const websiteSchema = generateWebsiteSchema();
+
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
+        <GoogleAnalytics />
         <Header />
         <main className="flex-1">
           {children}
