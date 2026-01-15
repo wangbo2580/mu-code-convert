@@ -1,9 +1,9 @@
-import { generateToolOGImage, ogImageConfig } from '@/lib/og-utils';
+import { generateToolOGImage } from '@/lib/og-utils';
 
-export const runtime = ogImageConfig.runtime;
+export const runtime = 'edge';
 export const alt = 'Base64 Encoder/Decoder - Encode & Decode Base64 Online';
-export const size = ogImageConfig.size;
-export const contentType = ogImageConfig.contentType;
+export const size = { width: 1200, height: 630 };
+export const contentType = 'image/png';
 
 export default async function Image() {
   return generateToolOGImage({
