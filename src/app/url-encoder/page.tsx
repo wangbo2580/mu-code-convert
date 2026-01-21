@@ -2,6 +2,8 @@
 
 import { useCallback } from 'react';
 import { ConverterLayout } from '@/components/converter/ConverterLayout';
+import { RelatedTools } from '@/components/tools/RelatedTools';
+import { ToolContent, TOOL_CONTENT } from '@/components/tools/ToolContent';
 import { encodeURL, decodeURL } from '@/lib/converters/url';
 
 const TABS = [
@@ -23,6 +25,9 @@ export default function URLEncoderPage() {
       inputPlaceholder="Enter text or URL-encoded string..."
       outputLabel="Output"
       convert={convert}
-    />
+    >
+      <ToolContent sections={TOOL_CONTENT.url} />
+      <RelatedTools currentToolId="url" />
+    </ConverterLayout>
   );
 }

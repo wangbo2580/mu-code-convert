@@ -3,6 +3,8 @@
 import { useCallback, useState } from 'react';
 import { ConverterLayout } from '@/components/converter/ConverterLayout';
 import { Button } from '@/components/ui/button';
+import { RelatedTools } from '@/components/tools/RelatedTools';
+import { ToolContent, TOOL_CONTENT } from '@/components/tools/ToolContent';
 import { textToHex, hexToText, HexFormat, HexCase } from '@/lib/converters/hex';
 
 const TABS = [
@@ -84,6 +86,9 @@ export default function HexConverterPage() {
           </div>
         </div>
       }
-    />
+    >
+      <ToolContent sections={TOOL_CONTENT.hex} />
+      <RelatedTools currentToolId="hex" />
+    </ConverterLayout>
   );
 }

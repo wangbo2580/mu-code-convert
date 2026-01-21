@@ -6,7 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/sonner";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { SITE_CONFIG } from "@/lib/constants";
-import { generateWebsiteSchema } from "@/lib/structuredData";
+import { generateWebsiteSchema, generateOrganizationSchema } from "@/lib/structuredData";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -81,6 +81,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const websiteSchema = generateWebsiteSchema();
+  const organizationSchema = generateOrganizationSchema();
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -89,6 +90,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(websiteSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
           }}
         />
       </head>

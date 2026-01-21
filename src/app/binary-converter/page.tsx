@@ -2,6 +2,8 @@
 
 import { useCallback } from 'react';
 import { ConverterLayout } from '@/components/converter/ConverterLayout';
+import { RelatedTools } from '@/components/tools/RelatedTools';
+import { ToolContent, TOOL_CONTENT } from '@/components/tools/ToolContent';
 import { textToBinary, binaryToText } from '@/lib/converters/binary';
 
 const TABS = [
@@ -23,6 +25,9 @@ export default function BinaryConverterPage() {
       inputPlaceholder="Enter text or binary code..."
       outputLabel="Output"
       convert={convert}
-    />
+    >
+      <ToolContent sections={TOOL_CONTENT.binary} />
+      <RelatedTools currentToolId="binary" />
+    </ConverterLayout>
   );
 }

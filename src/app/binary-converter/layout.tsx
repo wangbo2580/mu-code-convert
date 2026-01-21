@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { SEO_CONFIG } from '@/lib/seo';
-import { generateToolSchema, generateBreadcrumbSchema, generateFAQSchema, TOOL_FAQS } from '@/lib/structuredData';
+import { generateToolSchema, generateBreadcrumbSchema, generateFAQSchema, generateHowToSchema, TOOL_FAQS, TOOL_HOWTO_STEPS } from '@/lib/structuredData';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -36,6 +36,12 @@ export default function BinaryLayout({
 
   const faqSchema = generateFAQSchema(TOOL_FAQS.binary);
 
+  const howToSchema = generateHowToSchema({
+    name: 'Binary Converter',
+    description: 'Convert text to binary code and decode binary back to text online.',
+    steps: TOOL_HOWTO_STEPS.binary,
+  });
+
   return (
     <>
       <script
@@ -54,6 +60,12 @@ export default function BinaryLayout({
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(faqSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(howToSchema),
         }}
       />
       {children}

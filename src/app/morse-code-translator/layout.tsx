@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { SEO_CONFIG } from '@/lib/seo';
-import { generateToolSchema, generateBreadcrumbSchema, generateFAQSchema, TOOL_FAQS } from '@/lib/structuredData';
+import { generateToolSchema, generateBreadcrumbSchema, generateFAQSchema, generateHowToSchema, TOOL_FAQS, TOOL_HOWTO_STEPS } from '@/lib/structuredData';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -36,6 +36,12 @@ export default function MorseCodeLayout({
 
   const faqSchema = generateFAQSchema(TOOL_FAQS.morse);
 
+  const howToSchema = generateHowToSchema({
+    name: 'Morse Code Translator',
+    description: 'Convert text to Morse code and decode Morse code back to text with audio playback.',
+    steps: TOOL_HOWTO_STEPS.morse,
+  });
+
   return (
     <>
       <script
@@ -54,6 +60,12 @@ export default function MorseCodeLayout({
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(faqSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(howToSchema),
         }}
       />
       {children}

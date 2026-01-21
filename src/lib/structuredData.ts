@@ -12,6 +12,36 @@ export function generateWebsiteSchema() {
   };
 }
 
+export function generateOrganizationSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: SITE_CONFIG.name,
+    url: SITE_CONFIG.url,
+    description: SITE_CONFIG.description,
+    sameAs: [],
+  };
+}
+
+export function generateHowToSchema(tool: {
+  name: string;
+  description: string;
+  steps: { name: string; text: string }[];
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: `How to Use ${tool.name}`,
+    description: tool.description,
+    step: tool.steps.map((step, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+    })),
+  };
+}
+
 export function generateToolSchema(tool: {
   name: string;
   description: string;
@@ -60,6 +90,52 @@ export function generateFAQSchema(faqs: { question: string; answer: string }[]) 
     })),
   };
 }
+
+// Pre-defined HowTo steps for each tool
+export const TOOL_HOWTO_STEPS = {
+  morse: [
+    { name: 'Enter Your Text', text: 'Type or paste the text you want to convert to Morse code in the input field.' },
+    { name: 'View Instant Conversion', text: 'The Morse code translation appears instantly in the output field as you type.' },
+    { name: 'Play Audio (Optional)', text: 'Click the play button to hear your message in Morse code audio with authentic beep sounds.' },
+    { name: 'Copy Result', text: 'Click the copy button to copy the Morse code to your clipboard.' },
+  ],
+  base64: [
+    { name: 'Select Mode', text: 'Choose "Encode" to convert text to Base64, or "Decode" to convert Base64 back to text.' },
+    { name: 'Enter Your Data', text: 'Type or paste your text or Base64 string in the input field.' },
+    { name: 'Get Instant Result', text: 'The converted result appears instantly in the output field.' },
+    { name: 'Copy Result', text: 'Click the copy button to copy the result to your clipboard.' },
+  ],
+  binary: [
+    { name: 'Select Conversion Direction', text: 'Choose "Text to Binary" or "Binary to Text" mode.' },
+    { name: 'Enter Your Input', text: 'Type text to convert to binary, or paste binary code (0s and 1s) to decode.' },
+    { name: 'View Result', text: 'See the instant conversion result in the output field.' },
+    { name: 'Copy Result', text: 'Use the copy button to copy your binary code or decoded text.' },
+  ],
+  hex: [
+    { name: 'Choose Conversion Mode', text: 'Select "Text to Hex" to encode, or "Hex to Text" to decode.' },
+    { name: 'Enter Input', text: 'Type your text or paste hexadecimal values in the input field.' },
+    { name: 'Get Conversion', text: 'The hexadecimal conversion appears instantly in the output.' },
+    { name: 'Copy Output', text: 'Click copy to save the result to your clipboard.' },
+  ],
+  url: [
+    { name: 'Select Encode or Decode', text: 'Choose "Encode" for URL-safe encoding or "Decode" to restore encoded URLs.' },
+    { name: 'Paste Your URL or Text', text: 'Enter the URL or text you want to encode/decode.' },
+    { name: 'View Encoded/Decoded Result', text: 'See the percent-encoded or decoded result instantly.' },
+    { name: 'Copy Result', text: 'Copy the URL-safe string or decoded text to your clipboard.' },
+  ],
+  caesar: [
+    { name: 'Set Shift Value', text: 'Choose the number of positions to shift letters (default is 13 for ROT13).' },
+    { name: 'Enter Your Message', text: 'Type the text you want to encrypt or decrypt.' },
+    { name: 'View Cipher Result', text: 'See the encrypted or decrypted message instantly.' },
+    { name: 'Copy Encrypted Text', text: 'Copy the cipher text to share or store securely.' },
+  ],
+  html: [
+    { name: 'Choose Encode or Decode', text: 'Select "Encode" to convert special characters to HTML entities, or "Decode" to reverse.' },
+    { name: 'Enter HTML Content', text: 'Paste your HTML or text containing special characters.' },
+    { name: 'Get Safe HTML', text: 'View the escaped HTML entities or decoded characters instantly.' },
+    { name: 'Copy Result', text: 'Copy the safe HTML code for use in your web pages.' },
+  ],
+};
 
 // Pre-defined FAQs for each tool
 export const TOOL_FAQS = {

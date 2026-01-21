@@ -2,6 +2,8 @@
 
 import { useCallback } from 'react';
 import { ConverterLayout } from '@/components/converter/ConverterLayout';
+import { RelatedTools } from '@/components/tools/RelatedTools';
+import { ToolContent, TOOL_CONTENT } from '@/components/tools/ToolContent';
 import { encodeBase64, decodeBase64 } from '@/lib/converters/base64';
 
 const TABS = [
@@ -23,6 +25,9 @@ export default function Base64EncoderPage() {
       inputPlaceholder="Enter text or Base64 string..."
       outputLabel="Output"
       convert={convert}
-    />
+    >
+      <ToolContent sections={TOOL_CONTENT.base64} />
+      <RelatedTools currentToolId="base64" />
+    </ConverterLayout>
   );
 }

@@ -4,6 +4,8 @@ import { useCallback, useState } from 'react';
 import { ConverterLayout } from '@/components/converter/ConverterLayout';
 import { MorsePlayer } from '@/components/morse/MorsePlayer';
 import { MorseChart } from '@/components/morse/MorseChart';
+import { RelatedTools } from '@/components/tools/RelatedTools';
+import { ToolContent, TOOL_CONTENT } from '@/components/tools/ToolContent';
 import { textToMorse, morseToText } from '@/lib/converters/morse';
 
 const TABS = [
@@ -37,6 +39,8 @@ export default function MorseCodeTranslatorPage() {
         extraActions={<MorsePlayer morseCode={morseOutput} disabled={!morseOutput} />}
       >
         <MorseChart />
+        <ToolContent sections={TOOL_CONTENT.morse} />
+        <RelatedTools currentToolId="morse" />
       </ConverterLayout>
     </>
   );

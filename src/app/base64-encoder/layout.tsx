@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { SEO_CONFIG } from '@/lib/seo';
-import { generateToolSchema, generateBreadcrumbSchema, generateFAQSchema, TOOL_FAQS } from '@/lib/structuredData';
+import { generateToolSchema, generateBreadcrumbSchema, generateFAQSchema, generateHowToSchema, TOOL_FAQS, TOOL_HOWTO_STEPS } from '@/lib/structuredData';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -36,6 +36,12 @@ export default function Base64Layout({
 
   const faqSchema = generateFAQSchema(TOOL_FAQS.base64);
 
+  const howToSchema = generateHowToSchema({
+    name: 'Base64 Encoder/Decoder',
+    description: 'Encode text to Base64 or decode Base64 back to plain text instantly online.',
+    steps: TOOL_HOWTO_STEPS.base64,
+  });
+
   return (
     <>
       <script
@@ -54,6 +60,12 @@ export default function Base64Layout({
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(faqSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(howToSchema),
         }}
       />
       {children}

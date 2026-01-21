@@ -2,6 +2,8 @@
 
 import { useCallback } from 'react';
 import { ConverterLayout } from '@/components/converter/ConverterLayout';
+import { RelatedTools } from '@/components/tools/RelatedTools';
+import { ToolContent, TOOL_CONTENT } from '@/components/tools/ToolContent';
 import { encodeHTMLEntities, decodeHTMLEntities } from '@/lib/converters/html';
 
 const TABS = [
@@ -25,6 +27,9 @@ export default function HTMLEntitiesPage() {
       inputPlaceholder="Enter text or HTML entities..."
       outputLabel="Output"
       convert={convert}
-    />
+    >
+      <ToolContent sections={TOOL_CONTENT.html} />
+      <RelatedTools currentToolId="html" />
+    </ConverterLayout>
   );
 }

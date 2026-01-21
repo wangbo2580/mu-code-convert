@@ -5,6 +5,8 @@ import { ConverterLayout } from '@/components/converter/ConverterLayout';
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import { Label } from '@/components/ui/label';
+import { RelatedTools } from '@/components/tools/RelatedTools';
+import { ToolContent, TOOL_CONTENT } from '@/components/tools/ToolContent';
 import { caesarEncrypt, caesarDecrypt, rot13 } from '@/lib/converters/caesar';
 
 const TABS = [
@@ -64,6 +66,9 @@ export default function CaesarCipherPage() {
           </Button>
         </div>
       }
-    />
+    >
+      <ToolContent sections={TOOL_CONTENT.caesar} />
+      <RelatedTools currentToolId="caesar" />
+    </ConverterLayout>
   );
 }
