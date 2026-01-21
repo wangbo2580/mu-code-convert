@@ -20,15 +20,18 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: `${SITE_CONFIG.name} - Free Online Encoding & Decoding Tools`,
+    default: `${SITE_CONFIG.name} - Free Online Encoding & Decoding Tools | No Signup`,
     template: `%s | ${SITE_CONFIG.name}`,
   },
-  description: SITE_CONFIG.description,
+  description: 'Free online encoder decoder tools - Morse code translator, Caesar cipher decoder, Base64, Binary, Hex & more. Instant conversion, 100% free, no signup required!',
   keywords: [
     'encoder',
     'decoder',
     'converter',
     'morse code translator',
+    'morse code',
+    'caesar cipher',
+    'caesar cipher decoder',
     'base64 encoder',
     'binary converter',
     'hex converter',
@@ -47,13 +50,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
-    title: `${SITE_CONFIG.name} - Free Online Encoding & Decoding Tools`,
-    description: SITE_CONFIG.description,
+    title: `${SITE_CONFIG.name} - Free Online Encoding & Decoding Tools | No Signup`,
+    description: 'Free online encoder decoder tools - Morse code translator, Caesar cipher decoder, Base64, Binary & more. Instant conversion, 100% free!',
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${SITE_CONFIG.name} - Free Online Encoding & Decoding Tools`,
-    description: SITE_CONFIG.description,
+    title: `${SITE_CONFIG.name} - Free Online Encoding & Decoding Tools | No Signup`,
+    description: 'Free online encoder decoder tools - Morse code translator, Caesar cipher decoder, Base64, Binary & more. Instant conversion, 100% free!',
   },
   robots: {
     index: true,

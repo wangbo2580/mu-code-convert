@@ -11,13 +11,16 @@ interface PageSEO {
 
 export const SEO_CONFIG: Record<string, PageSEO> = {
   home: {
-    title: `${SITE_CONFIG.name} - Free Online Encoder Decoder Tools`,
-    description: 'Free online tools to convert text between Morse code, Base64, Binary, Hexadecimal, URL encoding, and more. Instant conversion, no download, no registration required.',
+    title: `${SITE_CONFIG.name} - Free Online Encoder Decoder Tools | No Signup`,
+    description: 'Free online encoder decoder tools - Morse code, Base64, Binary, Hex, Caesar cipher & more. Instant conversion, 100% free, no signup required. Works in your browser!',
     keywords: [
       'encoder',
       'decoder',
       'converter',
       'morse code',
+      'morse code translator',
+      'caesar cipher',
+      'caesar cipher decoder',
       'base64',
       'binary',
       'hex',
@@ -29,8 +32,8 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     canonical: SITE_CONFIG.url,
   },
   morse: {
-    title: 'Morse Code Translator - Convert Text to Morse Code Online Free',
-    description: 'Free online Morse code translator. Convert text to Morse code and decode Morse code to text instantly. Play Morse code audio with sound. No download, no registration needed.',
+    title: 'Morse Code Translator Online Free - Text to Morse Code Instant',
+    description: 'Free Morse code translator online! Convert text to Morse code & decode Morse to text instantly. Play audio, copy results. No signup, works in browser. Try it now!',
     keywords: [
       'morse code translator',
       'morse code translator online',
@@ -43,6 +46,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
       'morse code sound',
       'sos morse code',
       'morse code alphabet',
+      'free morse code translator',
     ],
     canonical: `${SITE_CONFIG.url}/morse-code-translator`,
   },
@@ -116,19 +120,21 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     canonical: `${SITE_CONFIG.url}/url-encoder`,
   },
   caesar: {
-    title: 'Caesar Cipher Decoder - ROT13 & Caesar Cipher Tool Online',
-    description: 'Free online Caesar cipher encoder/decoder and ROT13 tool. Encrypt or decrypt text with any shift value. Instant results, no download needed.',
+    title: 'Caesar Cipher Decoder Online Free - ROT13 Translator Instant',
+    description: 'Free Caesar cipher decoder & encoder online! Decrypt ROT13, any shift value. Instant results, no signup. Perfect for puzzles & cryptography. Try now!',
     keywords: [
       'caesar cipher',
+      'caesar cipher decoder',
       'caesar cipher online',
       'rot13',
-      'caesar cipher decoder',
+      'rot13 decoder',
       'caesar cipher encoder',
       'caesar cipher solver',
-      'rot13 decoder',
       'rot13 translator',
       'caesar shift cipher',
       'caesar cipher decryptor',
+      'free caesar cipher',
+      'decrypt caesar cipher',
     ],
     canonical: `${SITE_CONFIG.url}/caesar-cipher`,
   },
