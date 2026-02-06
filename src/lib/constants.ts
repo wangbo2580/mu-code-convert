@@ -57,7 +57,7 @@ export const TOOLS: Tool[] = [
 export const SITE_CONFIG = {
   name: 'CodeConvert',
   description: 'Free online tools to convert text between Morse code, Base64, Binary, Hexadecimal, URL encoding, and more.',
-  url: 'https://www.code-convert.com',
+  url: 'https://code-convert.com',
 };
 
 export const DEBOUNCE_DELAY = 300; // ms
